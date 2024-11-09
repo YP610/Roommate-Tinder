@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roommate Preferences - Sleep Schedule and Cleanliness</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #f2f2f2;
+      margin: 0;
+    }
+    .form-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    h2 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+      color: #555;
+    }
+    select, input[type="submit"], .cleanliness-scale button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    .cleanliness-scale {
+      display: flex;
+      justify-content: space-between;
+    }
+    .cleanliness-scale button {
+      background-color: #e0e0e0;
+      color: #333;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+    }
+    .cleanliness-scale button.selected {
+      background-color: #4e54c8;
+      color: #fff;
+    }
+    input[type="submit"] {
+      background-color: #4e54c8;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    input[type="submit"]:hover {
+      background-color: #3b42b1;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Roommate Preferences</h2>
+    <form id="preferencesForm">
+      <!-- Sleep Schedule Start Time -->
+      <label for="sleepStart">Preferred Sleep Time:</label>
+      <select id="sleepStart" name="sleepStart" required>
+        <option value="">Select Sleep Time</option>
+        <!-- Options from 6 PM to 12 PM -->
+        <option value="21:00">9:00 PM</option>
+        <option value="22:00">10:00 PM</option>
+        <option value="23:00">11:00 PM</option>
+        <option value="0:00">12:00 AM</option>
+        <option value="1:00">1:00 AM</option>
+        <option value="2:00">2:00 AM</option>
+        <option value="3:00">3:00 AM</option>
+      </select>
+
+      <!-- Sleep Schedule End Time -->
+      <label for="wakeTime">Preferred Wake Time:</label>
+      <select id="wakeTime" name="wakeTime" required>
+        <option value="">Select Wake Time</option>
+        <!-- Options from 6 AM to 12 PM -->
+        <option value="6:00">6:00 AM</option>
+        <option value="7:00">7:00 AM</option>
+        <option value="8:00">8:00 AM</option>
+        <option value="9:00">9:00 AM</option>
+        <option value="10:00">10:00 AM</option>
+        <option value="11:00">11:00 AM</option>
+        <option value="12:00">12:00 PM</option>
+      </select>
+
+      <!-- Cleanliness Scale -->
+      <label>Preferred Cleanliness Level:</label>
+      <div class="cleanliness-scale" id="cleanlinessScale">
+        <button type="button" data-value="1">1</button>
+        <button type="button" data-value="2">2</button>
+        <button type="button" data-value="3">3</button>
+        <button type="button" data-value="4">4</button>
+        <button type="button" data-value="5">5</button>
+      </div>
+      
+      
+
+      <!-- Submit Button -->
+      <input type="submit" value="Submit Preferences">
+      
+    </form>
+  </div>
+
+  <script>
+    // JavaScript to handle the cleanliness scale selection
+    const cleanlinessButtons = document.querySelectorAll('.cleanliness-scale button');
+    const cleanlinessInput = document.getElementById('cleanliness');
+
+    cleanlinessButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        cleanlinessButtons.forEach(btn => btn.classList.remove('selected')); // Deselect other buttons
+        button.classList.add('selected'); // Select current button
+        cleanlinessInput.value = button.getAttribute('data-value'); // Set hidden input's value
+      });
+    });
+  </script>
+</body>
+</html>
