@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roommate Preferences - Major and Hobbies</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #f2f2f2;
+      margin: 0;
+    }
+    .form-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    h2 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+      color: #555;
+    }
+    input[type="text"], textarea, input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    input[type="submit"] {
+      background-color: #4e54c8;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    input[type="submit"]:hover {
+      background-color: #3b42b1;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Roommate Preferences</h2>
+    <form id="preferencesForm" action="home.html" method="GET">
+      <!-- Major (Required) -->
+      <label for="major">Major (Required):</label>
+      <input type="text" id="major" name="major" required>
+
+      <!-- Hobbies (Optional) -->
+      <label for="hobbies">Hobbies:</label>
+      <textarea id="hobbies" name="hobbies" rows="4" placeholder="Enter your hobbies"></textarea>
+
+      <!-- Submit Button -->
+      <input type="submit" value="Proceed">
+    </form>
+  </div>
+</body>
+</html>
