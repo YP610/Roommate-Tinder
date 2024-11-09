@@ -17,12 +17,12 @@
       <input type="text" id="username" name="username" placeholder="Enter your username" required>
       
       <label for="password">Password</label>
-      <input type="password" id="password" name="password" placeholder="Enter your password" required>
-      <label for="confirmPassword">Confirm Password</label>
-      <input type="password" id="password" name="password" placeholder="Confirm your Password" required>
+      <input type="password" id="password" name="password" placeholder="Enter your password" onkeyup="passConfirm()">
+      <label for="ConfirmPassword">Confirm Password</label>
+      <input type="password" id="ConfirmPassword" name="password" placeholder="Confirm your Password" onkeyup="passConfirm()">
 
       <button type="submit" class="login-button">Login</button>
-      <p id="signUpMessage"></p>
+      <p id="Message"></p>
     </form>
 
   </div>

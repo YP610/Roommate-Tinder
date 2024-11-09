@@ -11,7 +11,7 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      background: #f2f2f2;
+      background: #4e54c8;
       margin: 0;
     }
     .form-container {
@@ -72,12 +72,12 @@
 </head>
 <body>
   <div class="form-container">
-    <h2>Roommate Preferences</h2>
+    <h2 style="text-align: center;">A Little Bit About You</h2>
     <form id="preferencesForm">
       <!-- Sleep Schedule Start Time -->
-      <label for="sleepStart">Preferred Sleep Time:</label>
+      <label for="sleepStart">When Do You Go To Sleep?</label>
       <select id="sleepStart" name="sleepStart" required>
-        <option value="">Select Sleep Time</option>
+        <option value="">Select Time</option>
         <!-- Options from 6 PM to 12 PM -->
         <option value="21:00">9:00 PM</option>
         <option value="22:00">10:00 PM</option>
@@ -86,12 +86,13 @@
         <option value="1:00">1:00 AM</option>
         <option value="2:00">2:00 AM</option>
         <option value="3:00">3:00 AM</option>
+        <option value="4:00">4:00 AM</option>
       </select>
 
       <!-- Sleep Schedule End Time -->
-      <label for="wakeTime">Preferred Wake Time:</label>
+      <label for="wakeTime">When Do You Wake Up?</label>
       <select id="wakeTime" name="wakeTime" required>
-        <option value="">Select Wake Time</option>
+        <option value="">Select Time</option>
         <!-- Options from 6 AM to 12 PM -->
         <option value="6:00">6:00 AM</option>
         <option value="7:00">7:00 AM</option>
@@ -100,10 +101,11 @@
         <option value="10:00">10:00 AM</option>
         <option value="11:00">11:00 AM</option>
         <option value="12:00">12:00 PM</option>
+        <option value="1:00">1:00 PM</option>
       </select>
 
       <!-- Cleanliness Scale -->
-      <label>Preferred Cleanliness Level:</label>
+      <label>Rate Your Cleanliness:</label>
       <div class="cleanliness-scale" id="cleanlinessScale">
         <button type="button" data-value="1">1</button>
         <button type="button" data-value="2">2</button>
