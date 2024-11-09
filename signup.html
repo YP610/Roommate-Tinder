@@ -4,27 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login Page</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style-sign.css">
 </head>
 <body>
   <div class="login-container">
     <h2>Welcome Back</h2>
     <p class="subheading">Please log in to your account</p>
     <form id="loginForm">
+      <label for="email">Email</label>
+      <input type="text" id="username" name="username" placeholder="Enter your email" required>
       <label for="username">Username</label>
       <input type="text" id="username" name="username" placeholder="Enter your username" required>
       
       <label for="password">Password</label>
       <input type="password" id="password" name="password" placeholder="Enter your password" required>
-      
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password" id="password" name="password" placeholder="Confirm your Password" required>
+
       <button type="submit" class="login-button">Login</button>
-      <p id="loginMessage"></p>
+      <p id="signUpMessage"></p>
     </form>
 
-    <p class="signup-prompt">Don’t have an account?</p>
-    <a href="signup.html" class="signup-button">Create Account</a>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script-sign.js"></script>
 </body>
 </html>

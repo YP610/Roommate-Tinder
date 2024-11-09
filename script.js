@@ -14,6 +14,7 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     } else {
       loginMessage.style.color = "red";
       loginMessage.textContent = "Incorrect username or password";
+      document.getElementById("password").value = "";
     }
   });
   
