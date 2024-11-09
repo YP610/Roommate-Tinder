@@ -1,3 +1,4 @@
+/*
 const express = require('express');
 const app = express();
 const port = 5000;
@@ -18,7 +19,8 @@ app.get('/items', (req, res) => {
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
-/*
+*/
+
 const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
@@ -43,10 +45,9 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  cleanliness: { type: Number, min: 1, max: 5, required: true }, 
-  areaOfResidence: { type: String, enum: ['Southwest', 'Central', 'Orchard Hill','Northeast','Sylvan'], required: true }, 
-  hobbies: { type: String, required: false },  
-
+  cleanliness: { type: Number, min: 1, max: 5, required: true },
+  areaOfResidence: { type: String, enum: ['Southwest', 'Central', 'Orchard Hill', 'Northeast', 'Sylvan'], required: true },
+  hobbies: { type: String, required: false },
   preferences: {
     location: String,
     lifestyle: String,
@@ -57,14 +58,14 @@ const userSchema = new mongoose.Schema({
 });
 
 // Password hashing
-userSchema.pre('save', async function(next) {
+userSchema.pre('save', async function (next) {
   if (!this.isModified('password')) return next();
   this.password = await bcrypt.hash(this.password, 10);
   next();
 });
 
 // Password validation method
-userSchema.methods.isValidPassword = async function(password) {
+userSchema.methods.isValidPassword = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
 
@@ -74,16 +75,15 @@ const User = mongoose.model('User', userSchema);
 
 // Signup Route
 app.post('/signup', async (req, res) => {
-    const { email, username, password, cleanliness, areaOfResidence, hobbies, preferences } = req.body;
-    try {
-      const newUser = new User({ email, username, password, cleanliness, areaOfResidence, hobbies, preferences });
-      await newUser.save();
-      res.status(201).json({ message: 'User registered successfully' });
-    } catch (error) {
-      res.status(400).json({ message: error.message });
-    }
-  });
-  
+  const { email, username, password, cleanliness, areaOfResidence, hobbies, preferences } = req.body;
+  try {
+    const newUser = new User({ email, username, password, cleanliness, areaOfResidence, hobbies, preferences });
+    await newUser.save();
+    res.status(201).json({ message: 'User registered successfully' });
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
 
 // Login Route
 app.post('/login', async (req, res) => {
@@ -108,7 +108,7 @@ app.get('/matches/:userId', async (req, res) => {
       return res.status(404).json({ message: 'User not found' });
     }
     const matches = await User.find({
-      _id: { $ne: user._id }, // Exclude the current user
+      _id: { $ne: user._id },
       'preferences.location': user.preferences.location,
       'preferences.cleanliness': user.preferences.cleanliness,
       'preferences.hobbies': user.preferences.hobbies,
@@ -124,7 +124,9 @@ app.get('/items', (req, res) => {
   const items = [
     { name: 'Item 1', description: 'Description of item 1' },
     { name: 'Item 2', description: 'Description of item 2' },
-    { name: 'Item 3', description: 'Description of item 3' }
+    { name: 'Item 3', description: 'Description of item 3' },
+    { name: 'Item 4', description: 'Description of item 4' }
+
   ];
   res.json(items);
 });
@@ -134,4 +136,3 @@ app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
 
-*/
