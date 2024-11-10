@@ -31,9 +31,10 @@ const port = 5000;
 
 // Middleware
 app.use(express.json()); // Parse JSON bodies
+app.use(express.static('public'))
 
 // MongoDB Connection
-mongoose.connect('mongodb://localhost:27017/roommate-app', {
+mongoose.connect('mongodb+srv://pranav:mongodb6@cluster0.dcxpq.mongodb.net/', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => {
@@ -46,13 +47,11 @@ const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   cleanliness: { type: Number, min: 1, max: 5, required: true },
-  areaOfResidence: { type: String, enum: ['Southwest', 'Central', 'Orchard Hill', 'Northeast', 'Sylvan'], required: true },
+  areaOfResidence: { type: String, enum: ['Southwest', 'Central', 'Orchard Hill', 'Northeast', 'Sylvan','Honors Housing'], required: true },
   hobbies: { type: String, required: false },
   preferences: {
-    location: String,
+    sleep: String,
     lifestyle: String,
-    personalityTraits: [String],
-    budgetRange: String,
   },
   matchedUsers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
 });
@@ -129,6 +128,7 @@ app.get('/items', (req, res) => {
 
   ];
   res.json(items);
+  /*res.send('<h1>Hello</h1>')*/
 });
 
 // Start server
