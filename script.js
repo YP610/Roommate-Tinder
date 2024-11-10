@@ -5,10 +5,11 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     const password = document.getElementById("password").value;
     const loginMessage = document.getElementById("loginMessage");
   
-    // Simple hardcoded validation for demo purposes
+    // Add code that username and password is in the database, if not, upload incorrect use message
     if (username === "user123" && password === "pass123") {
       loginMessage.style.color = "green";
       loginMessage.textContent = "Login successful!";
+      window.location.href="home-improved.html";
       // Redirect to another page if needed
       // window.location.href = "home.html";
     } else {

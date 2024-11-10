@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #4e54c8, #8f94fb);
+    background: linear-gradient(0deg,#d48383 , #881c1c);
     color: #333;
   }
   
@@ -27,7 +27,7 @@
   h2 {
     margin-bottom: 0.5rem;
     font-size: 1.8rem;
-    color: #4e54c8;
+    color: #881c1c;
   }
   
   .subheading {
@@ -57,7 +57,7 @@
   input[type="text"]:focus,
   input[type="password"]:focus {
     outline: none;
-    border-color: #8f94fb;
+    border-color: #881c1c;
     box-shadow: 0 0 5px rgba(143, 148, 251, 0.5);
   }
   
@@ -65,7 +65,7 @@
     width: 100%;
     padding: 10px;
     margin-top: 1rem;
-    background-color: #4e54c8;
+    background-color: #881c1c;
     color: white;
     border: none;
     border-radius: 6px;
@@ -76,10 +76,10 @@
   }
   
   .login-button:hover {
-    background-color: #3b42b1;
+    background-color: #881c1c;
   }
   
-  #signUpMessage {
+  #Message {
     margin-top: 15px;
     font-size: 0.9rem;
   }
@@ -95,7 +95,7 @@
     margin-top: 0.5rem;
     padding: 10px 20px;
     font-size: 0.9rem;
-    color: #4e54c8;
+    color: #881c1c;
     background-color: #f4f4f9;
     border-radius: 6px;
     border: 1px solid #ddd;

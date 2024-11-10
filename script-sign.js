@@ -1,19 +1,13 @@
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent form submission
-    const email=document.getElementById("email").value;
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-    const signUpMessage = document.getElementById("signUpMessage");
-    const confirmPassword=document.getElementById("confirmPassword").value;
+function passConfirm() {
+    const password = document.getElementById("Password").value;
+    const confirmPassword = document.getElementById("ConfirmPassword").value;
+    const message = document.getElementById("Message");
 
-    if(password!==confirmPassword){
-        signUpMessage.style.color = "red";
-        signUpMessage.textContent = "Passwords DO NOT MATCH";
+    if (password === confirmPassword) {
+        message.style.color = "green";
+        message.textContent = "Passwords match!";
+    } else {
+        message.style.color = "red";
+        message.textContent = "Passwords do NOT match!";
     }
-    else{
-        signUpMessage.style.color = "green";
-        signUpMessage.textContent = "thanks";
-    }
-
-  });
-  
+}

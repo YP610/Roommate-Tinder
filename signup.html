@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Page</title>
+  <title>Sign Up Page</title>
   <link rel="stylesheet" href="style-sign.css">
 </head>
 <body>
   <div class="login-container">
-    <h2>Welcome Back</h2>
-    <p class="subheading">Please log in to your account</p>
-    <form id="loginForm">
+    <h2>Welcome</h2>
+    <p class="subheading">Please create an account</p>
+    <form id="signUp" action="preferences.html" method="GET">
       <label for="email">Email</label>
       <input type="text" id="username" name="username" placeholder="Enter your email" required>
       <label for="username">Username</label>
@@ -21,7 +21,7 @@
       <label for="ConfirmPassword">Confirm Password</label>
       <input type="password" id="ConfirmPassword" name="password" placeholder="Confirm your Password" onkeyup="passConfirm()">
 
-      <button type="submit" class="login-button">Login</button>
+      <button type="submit" class="login-button">Sign Up</button>
       <p id="Message"></p>
     </form>
 

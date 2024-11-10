@@ -11,7 +11,7 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      background: #4e54c8;
+      background: linear-gradient(0deg,#d48383 , #881c1c);
       margin: 0;
     }
     .form-container {
@@ -55,25 +55,25 @@
       font-size: 1.1rem;
     }
     .cleanliness-scale button.selected {
-      background-color: #4e54c8;
+      background-color: #881c1c;
       color: #fff;
     }
     input[type="submit"] {
-      background-color: #4e54c8;
+      background-color: #881c1c;
       color: #fff;
       font-weight: bold;
       cursor: pointer;
       margin-top: 15px;
     }
     input[type="submit"]:hover {
-      background-color: #3b42b1;
+      background-color: #881c1c;
     }
   </style>
 </head>
 <body>
   <div class="form-container">
     <h2 style="text-align: center;">A Little Bit About You</h2>
-    <form id="preferencesForm">
+    <form id="preferencesForm" action="add_info.html" method="GET">
       <!-- Sleep Schedule Start Time -->
       <label for="sleepStart">When Do You Go To Sleep?</label>
       <select id="sleepStart" name="sleepStart" required>
@@ -118,6 +118,7 @@
 
       <!-- Submit Button -->
       <input type="submit" value="Submit Preferences">
+
       
     </form>
   </div>
