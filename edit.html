@@ -1,307 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Scrolling Page with Images and Button</title>
- <style>
-   /* Reset default margin and padding */
-   * {
-     margin: 0;
-     padding: 0;
-     box-sizing: border-box;
-   }
-
-
-   body {
-     font-family: Arial, sans-serif;
-     background-color: #f4f4f9;
-     color: #333;
-     scroll-behavior: smooth; /* Enables smooth scrolling */
-   }
-
-
-   header {
-     position: fixed;
-     top: 0;
-     width: 100%;
-     background-color: #333;
-     color: white;
-     padding: 10px;
-     text-align: center;
-     z-index: 1000;
-   }
-
-
-   header nav a {
-     margin: 0 15px;
-     color: white;
-     text-decoration: none;
-     font-weight: bold;
-   }
-
-
-   header nav a:hover {
-     text-decoration: underline;
-   }
-
-
-   .section {
-     height: 100vh;
-     padding: 100px 20px;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: center;
-     scroll-snap-align: start;
-   }
-
-
-   .section:nth-child(odd) {
-     background-color: #e3f2fd;
-   }
-
-
-   .section:nth-child(even) {
-     background-color: #bbdefb;
-   }
-
-
-   h2 {
-     margin-bottom: 20px;
-     font-size: 2em;
-   }
-
-
-   p {
-     max-width: 600px;
-     text-align: center;
-     font-size: 1.2em;
-   }
-
-
-   /* Image styling */
-   img {
-     max-width: 100%;
-     height: auto;
-     border-radius: 8px;
-     margin-top: 20px;
-     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-   }
-
-
-   /* Floating Button styling */
-   .floating-button {
-     position: fixed;
-     bottom: 20px;
-     right: 20px;
-     width: 50px;
-     height: 50px;
-     background-color: #ff4081;
-     color: white;
-     border: none;
-     border-radius: 50%;
-     font-size: 24px;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-     cursor: pointer;
-     transition: background-color 0.3s;
-     z-index: 1000;
-   }
-
-
-   .floating-button:hover {
-     background-color: #e91e63;
-   }
-   .image-preview {
-    width: 100%;
-    height: 200px;
-    margin-bottom: 20px;
-    border: 2px dashed #333;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #333;
-    font-size: 14px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-   }
-    .file-input {
-    margin-bottom: 20px;
-    position: relative;
-}
- </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edit Profile Page</title>
+ 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+ 
+  <!-- External CSS -->
+  <link rel="stylesheet" href="edit.css">
 </head>
 <body>
- <header>
-   <nav>
-     <a href="#section1">Profile Picture</a>
-     <a href="#section2">Lifestyle</a>
-     <a href="#section3">Preferences</a>
-     <a href="#section4">Add Info</a>
-   </nav>
- </header>
-
-
- <div id="section1" class="section">
-   <h2>Profile Picture</h2>
-   <div class="container">
-    <div class="upload-box">
-        <h2></h2>
+ 
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <nav>
+      <a href="#section1">Profile Picture</a>
+      <a href="#section3">Preferences</a>
+      <a href="#section2">Lifestyle</a>
+      <a href="#section4">Additional Info</a>
+    </nav>
+  </aside>
+ 
+  <!-- Main Content Area -->
+  <main class="content">
+   
+    <!-- Profile Picture Section -->
+    <section id="section1" class="section">
+      <h2>Profile Picture</h2>
+      <div class="upload-container">
         <form id="uploadForm" enctype="multipart/form-data">
-            <div class="image-preview" id="imagePreview">
-                <span class="image-preview__default-text">Image Preview</span>
-            </div>
-            <div class="file-input">
-                <input type="file" id="profileImage" accept="image/*" required>
-                <label for="profileImage">Choose a Photo</label>
-            </div>
-            <button type="submit">Upload</button>
+          <div class="image-preview" id="imagePreview">
+            <span class="image-preview__default-text">Image Preview</span>
+          </div>
+          <div class="file-input">
+            <label for="profileImage"></label>
+            <input type="file" id="profileImage" accept="image/*" required>
+          </div>
+          <button type="submit" class="upload-btn">Upload</button>
         </form>
-    </div>
-</div>
-<script src="script.js"></script>
- </div>
-
-
- <div id="section2" class="section">
-   <h2>Lifestyle</h2>
-   <h2 style="text-align: center;">A Little Bit About You</h2>
-    <form id="preferencesForm" action="add_info.html" method="GET">
-      <!-- Sleep Schedule Start Time -->
-      <label for="sleepStart">When Do You Go To Sleep?</label>
-      <select id="sleepStart" name="sleepStart" required>
-        <option value="">Select Time</option>
-        <!-- Options from 6 PM to 12 PM -->
-        <option value="21:00">9:00 PM</option>
-        <option value="22:00">10:00 PM</option>
-        <option value="23:00">11:00 PM</option>
-        <option value="0:00">12:00 AM</option>
-        <option value="1:00">1:00 AM</option>
-        <option value="2:00">2:00 AM</option>
-        <option value="3:00">3:00 AM</option>
-        <option value="4:00">4:00 AM</option>
-      </select>
-
-      <!-- Sleep Schedule End Time -->
-      <label for="wakeTime">When Do You Wake Up?</label>
-      <select id="wakeTime" name="wakeTime" required>
-        <option value="">Select Time</option>
-        <!-- Options from 6 AM to 12 PM -->
-        <option value="6:00">6:00 AM</option>
-        <option value="7:00">7:00 AM</option>
-        <option value="8:00">8:00 AM</option>
-        <option value="9:00">9:00 AM</option>
-        <option value="10:00">10:00 AM</option>
-        <option value="11:00">11:00 AM</option>
-        <option value="12:00">12:00 PM</option>
-        <option value="1:00">1:00 PM</option>
-      </select>
-
-      <!-- Cleanliness Scale -->
-      <label>Rate Your Cleanliness:</label>
-      <div class="cleanliness-scale" id="cleanlinessScale">
-        <button type="button" data-value="1">1</button>
-        <button type="button" data-value="2">2</button>
-        <button type="button" data-value="3">3</button>
-        <button type="button" data-value="4">4</button>
-        <button type="button" data-value="5">5</button>
       </div>
-      
-      
-
-      <!-- Submit Button -->
-      <input type="submit" value="Submit Preferences">
- </div>
-
-
- <div id="section3" class="section">
-   <h2>Preferences</h2>
-   <h2 style="text-align: center;">A Little Bit About You</h2>
-    <form id="preferencesForm" action="lifestyle.html" method="GET">
-      <!-- Gender Preference -->
-      <label for="gender">Your Gender:</label>
-      <select id="gender" name="gender" required>
-        <option value="">Select Gender</option>
-        <option value="M">Male</option>
-        <option value="F">Female</option>
-      </select>
-
-      <!-- Year Preference -->
-      <label for="year">Preferred Year:</label>
-      <select id="year" name="year" required>
-        <option value="">Select Year</option>
-        <option value="Freshman">Freshman</option>
-        <option value="Sophomore">Sophomore</option>
-        <option value="Junior">Junior</option>
-        <option value="Senior">Senior</option>
-      </select>
-
-      <!-- Preferred Residence Hall -->
-      <label for="residenceArea">Preferred Residence Area:</label>
-      <select id="residenceArea" name="residenceArea" required>
-        <option value="">Select Residence Area</option>
-        <option value="Southwest">Southwest</option>
-        <option value="Central">Central</option>
-        <option value="Orchard Hill">Orchard Hill</option>
-        <option value="Northeast">Northeast</option>
-        <option value="Honors">Honors Housing</option>
-      </select>
-
-      <!-- Submit Button -->
-      <input type="submit" value="Submit Preferences">
- </div>
- <div id="section4" class="section">
-  <h2>Additional Info</h2>
-  <div class="form-container">
-    <h2>Roommate Preferences</h2>
-    <form id="preferencesForm" action="home.html" method="GET">
-      <!-- Major (Required) -->
-      <label for="major">Major (Required):</label>
-      <input type="text" id="major" name="major" required>
-
-      <!-- Hobbies (Optional) -->
-      <label for="hobbies">Hobbies:</label>
-      <textarea id="hobbies" name="hobbies" rows="4" placeholder="Enter your hobbies"></textarea>
-
-      <!-- Submit Button -->
-      <input type="submit" value="Proceed">
-    </form>
-  </div>
-</div>
-<script src="script.js"></script>
-</div>
- <!-- Floating Button that navigates to another page -->
- <button class="floating-button" onclick="navigateToPage()">→</button>
-
-
- <script>
-   // JavaScript for smooth scrolling to sections
-   document.addEventListener("DOMContentLoaded", () => {
-     const links = document.querySelectorAll("header nav a");
-
-
-     links.forEach(link => {
-       link.addEventListener("click", (event) => {
-         event.preventDefault();
-         const targetId = link.getAttribute("href").substring(1);
-         const targetSection = document.getElementById(targetId);
-
-
-         // Scroll smoothly to the target section
-         targetSection.scrollIntoView({ behavior: "smooth" });
-       });
-     });
-   });
-
-
-   // Function to navigate to another page
-   function navigateToPage() {
-     window.location.href = "profile.html"; // Replace with your target page URL
-   }
- </script>
+    </section>
+    <section id="section3" class="section">
+      <h2>Preferences</h2>
+      <form id="preferencesForm">
+        <div class="form-group">
+          <label for="gender">Your Gender:</label>
+          <select id="gender" name="gender" required>
+            <option value="">Select Gender</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+          </select>
+        </div>
+       
+        <div class="form-group">
+          <label for="year">Preferred Year:</label>
+          <select id="year" name="year" required>
+            <option value="">Select Year</option>
+            <option value="Freshman">Freshman</option>
+            <option value="Sophomore">Sophomore</option>
+          </select>
+        </div>
+       
+        <button type="submit" class="submit-btn">Submit Preferences</button>
+      </form>
+    </section>
+    <!-- Lifestyle Section -->
+    <section id="section2" class="section">
+      <h2>Lifestyle</h2>
+      <form id="lifestyleForm">
+        <div class="form-group">
+          <label for="sleepStart">When Do You Go To Sleep?</label>
+          <select id="sleepStart" name="sleepStart" required>
+            <option value="">Select Time</option>
+            <option value="21:00">9:00 PM</option>
+            <option value="22:00">10:00 PM</option>
+            <option value="23:00">11:00 PM</option>
+            <option value="0:00">12:00 AM</option>
+            <option value="1:00">1:00 AM</option>
+            <option value="2:00">2:00 AM</option>
+            <option value="3:00">3:00 AM</option>
+            <option value="4:00">4:00 AM</option>
+            <option value="5:00">5:00 AM</option>
+          </select>
+        </div>
+       
+        <div class="form-group">
+          <label for="wakeTime">When Do You Wake Up?</label>
+          <select id="wakeTime" name="wakeTime" required>
+            <option value="">Select Time</option>
+            <option value="6:00">6:00 AM</option>
+            <option value="7:00">7:00 AM</option>
+            <option value="8:00">8:00 AM</option>
+            <option value="9:00">9:00 AM</option>
+            <option value="10:00">10:00 AM</option>
+            <option value="11:00">11:00 AM</option>
+            <option value="12:00">12:00 PM</option>
+          </select>
+        </div>
+       
+        <div class="form-group">
+          <label>Rate Your Cleanliness:</label>
+          <div class="cleanliness-scale" id="cleanlinessScale">
+            <button type="button" data-value="1">1</button>
+            <button type="button" data-value="2">2</button>
+            <button type="button" data-value="3">3</button>
+            <button type="button" data-value="4">4</button>
+            <button type="button" data-value="5">5</button>
+          </div>
+          <input type="hidden" id="cleanliness" name="cleanliness" required>
+        </div>
+       
+        <button type="submit" class="submit-btn">Submit Preferences</button>
+      </form>
+    </section>
+   
+    <!-- Additional Info Section -->
+    <section id="section4" class="section">
+      <h2>Additional Info</h2>
+      <form id="additionalInfoForm">
+        <div class="form-group">
+          <label for="major">Major (Required):</label>
+          <input type="text" id="major" name="major" required>
+        </div>
+       
+        <div class="form-group">
+          <label for="hobbies">Hobbies:</label>
+          <textarea id="hobbies" name="hobbies" rows="4" placeholder="Enter your hobbies"></textarea>
+        </div>
+       
+        <button type="submit" class="submit-btn">Proceed</button>
+      </form>
+    </section>
+   
+  </main>
+ 
+  <!-- JavaScript -->
+  <script src="edit.js"></script>
 </body>
 </html>
