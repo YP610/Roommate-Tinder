@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Profile Picture</title>
+    <link rel="stylesheet" href="profile_photo.css">
+</head>
+<body>
+    <div class="container">
+        <div class="upload-box">
+            <h2>Upload Profile Picture</h2>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <div class="image-preview" id="imagePreview">
+                    <img src="" alt="Image Preview" class="image-preview__image">
+                    <span class="image-preview__default-text">Image Preview</span>
+                </div>
+                <div class="file-input">
+                    <input type="file" id="profileImage" accept="image/*" required>
+                    <!--<label for="profileImage"></label>-->
+                    <br></br>
+                </div>
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+    </div>
+    <script src="picture_script.js"></script>
+</body>
+</html>
